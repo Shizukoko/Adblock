@@ -1,11 +1,11 @@
-! Optimized Universal Ad and Annoyance Blocker
-! Blocks ads, pop-ups, trackers, and other intrusive elements, with minimal website breakage
+! Optimized Universal Ad Blocker (Enhanced)
+! Blocking ads, trackers, and unwanted elements with minimal breakage of websites
 
-! Block third-party ads and trackers but allow trusted sites to load content
+! Block third-party ads, trackers, and pop-ups, but allow trusted websites to function normally
 *$third-party,script,domain=~trustedwebsite.com|~example.com
 *$third-party,frame,domain=~trustedwebsite.com|~example.com
 
-! Block known ad-serving domains and trackers globally
+! Block generic third-party ads and tracking domains
 ||ad.$domain=~trustedwebsite.com|~example.com
 ||*.doubleclick.net^
 ||*.googlesyndication.com^
@@ -20,7 +20,7 @@
 ||*.appnexus.com^
 ||*.rubiconproject.com^
 
-! Block ad and tracking networks (common ad services)
+! Block ad networks and affiliate networks
 ||adform.net^
 ||adnxs.com^
 ||criteo.net^
@@ -41,20 +41,19 @@
 ||bluekai.com^
 ||comscore.com^
 
-! Block intrusive overlays, pop-ups, and cookie banners without affecting basic page layout
+! Block overlay ads, cookie banners, and pop-ups that interfere with browsing
 ##.popup
 ##.modal
 ##.lightbox
 ##.cookie-banner
 ##.fullscreen-overlay
-##.ads
 ##.ad-container
 ##[id^="ad"]
 ##[class^="ad-"]
 ##[data-ad]
 ##[data-popup]
 
-! Block social media widgets and trackers only from third-party domains
+! Block social media widgets and trackers (but avoid interfering with site functionality)
 ||facebook.com^$third-party
 ||twitter.com^$third-party
 ||instagram.com^$third-party
@@ -64,7 +63,7 @@
 ||vimeo.com^$third-party
 ||tiktok.com^$third-party
 
-! Block video ads and pre-rolls, but allow legitimate video content
+! Block video ads, pre-rolls, and tracking for streaming content (without breaking legitimate videos)
 ||*.video-ad.*
 ||*.preroll.*^
 ||youtube.com/get_video_info?adformat^
@@ -72,27 +71,27 @@
 ||vimeo.com/api/v2/video/*/stats^
 ||*.ad-video.*
 
-! Block forced autoplay, but allow non-intrusive media
+! Block forced autoplay of videos and audio
 ||*.autoplay.*
 ||*.sound.*^
 ||*.media-player.*
 ||*.video.*$document
 
-! Block misleading fake download buttons and buttons that mimic website navigation
+! Block misleading fake download buttons and pop-ups that imitate legitimate buttons
 ##.fake-download
 ##.btn-download
 ##.fake-button
 ##.download-now
 ##.start-download
 
-! Block overlays and interstitial ads that take over the page, without breaking normal navigation
+! Block full-screen page overlays, interstitials, and unwanted banners
 ##.ad-popup
 ##.ad-banner
 ##.page-cover
 ##.ad-interstitial
 ##.fullscreen-ad
 
-! Block advanced trackers like fingerprinting and device tracking, but ensure essential scripts work
+! Block advanced trackers like fingerprinting and device tracking, without breaking essential site functions
 ||*.fingerprint.*^
 ||*.device.*^
 ||*.canvas.*^
@@ -104,7 +103,7 @@
 ||*.cache.*^
 ||*.cookies.*^
 
-! Block auto-redirects, but allow legitimate navigation
+! Block auto-redirects, forced pop-ups, and malicious links (but allow valid redirects for site navigation)
 ||*.auto-redirect.*
 ||*.redirect.*^$document
 ||*.landing.*^$document
@@ -112,7 +111,7 @@
 ||*.promo.*^$document
 ||*.track.*^$document
 
-! Malware, phishing, and suspicious domains
+! Malware, phishing, and suspicious domains (for additional security)
 ||*.malware.*
 ||*.phishing.*
 ||*.virus.*
@@ -120,7 +119,7 @@
 ||*.scam.*
 ||*.trojan.*
 
-! Block unnecessary resources (scripts, styles, images) that don't contribute to website functionality
+! Block unnecessary resources that don’t affect website functionality (like extra images or scripts)
 ||*.js$script
 ||*.css$stylesheet
 ||*.jpg$image
@@ -128,7 +127,7 @@
 ||*.png$image
 ||*.gif$image
 
-! Anti-Adblocker Bypass: Block anti-adblocker scripts but avoid breaking content
+! Anti-Adblocker Bypass: Block anti-adblocker scripts without breaking core site features
 ##.adblock-detected
 ##.adblock-notice
 ##.adblock-message
@@ -142,13 +141,13 @@
 ##.block-message
 ##.block-ad-warning
 
-! Block auto-tab opening and window popups
+! Block auto-tab opening, new tab popups, and unwanted window redirects
 ||*.autotab.*
 ||*.tabopen.*
 ||*.opennewtab.*
 ||*.newtab.*
 
-! Exceptions for trusted sites (only necessary resources allowed)
+! Exceptions for trusted websites to load necessary resources and content
 @@||trustedwebsite.com^$document
 @@||example.com^$document
 @@||cdnjs.cloudflare.com^$script
@@ -156,7 +155,7 @@
 @@||fonts.gstatic.com^$font
 @@||github.com^$document
 
-! Ensure no breaking of legitimate websites, especially code repositories like GitHub
+! Ensure no breaking of legitimate websites, especially code repositories like GitHub or essential web tools
 @@||*.css$stylesheet
 @@||*.js$script
 @@||*.png$image
