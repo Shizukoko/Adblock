@@ -1,39 +1,33 @@
-! Optimized Mobile-Friendly Ad Blocker (Minimal Breakage on Mobile)
-! Designed for Chromium-based mobile browsers (e.g., Chrome, Brave)
+! Simplified Ad Blocker - Blocks Ads & Trackers Without Breaking Websites
+! This filter is designed to block intrusive ads, trackers, and auto-opening tabs, ensuring functionality on mobile Chromium browsers.
 
-! Block third-party ads and trackers, but leave essential resources for site functionality
-*$third-party,script,domain=~trustedwebsite.com|~example.com
-*$third-party,frame,domain=~trustedwebsite.com|~example.com
+! Block third-party ads and trackers
+||doubleclick.net^
+||googlesyndication.com^
+||adservice.*^
+||track.*^
+||tracking.*^
+||analytics.*^
+||cloudfront.net^
+||googletagservices.com^
+||amazon-adsystem.com^
+||yahoo.com^
+||appnexus.com^
+||rubiconproject.com^
+||facebook.com^$third-party
+||twitter.com^$third-party
+||instagram.com^$third-party
+||youtube.com^$third-party
+||vimeo.com^$third-party
 
-! Block generic third-party ad and tracker domains without affecting mobile navigation
-||ad.$domain=~trustedwebsite.com|~example.com
-||*.doubleclick.net^
-||*.googlesyndication.com^
-||*.adservice.*^
-||*.track.*^
-||*.tracking.*^
-||*.analytics.*^
-||*.cloudfront.net^
-||*.googletagservices.com^
-||*.amazon-adsystem.com^
-||*.yahoo.com^
-||*.appnexus.com^
-||*.rubiconproject.com^
+! Block video ads, pre-rolls, and unwanted autoplay
+||*.video-ad.*
+||*.preroll.*^
+||youtube.com/get_video_info?adformat^
+||youtube.com/api/stats/ads^
+||*.autoplay.*
 
-! Block mobile pop-ups, interstitials, and unnecessary overlays (minimize interruption)
-##.popup
-##.modal
-##.lightbox
-##.cookie-banner
-##.fullscreen-overlay
-##.ad-container
-##[id^="ad"]
-##[class^="ad-"]
-##[data-ad]
-##[data-popup]
-##.ad
-
-! Block pop-up banners and trackers that affect mobile browsing (without breaking mobile site layout)
+! Block social media widgets, trackers, and scripts that disrupt browsing
 ||facebook.com^$third-party
 ||twitter.com^$third-party
 ||instagram.com^$third-party
@@ -41,106 +35,37 @@
 ||pinterest.com^$third-party
 ||youtube.com^$third-party
 ||vimeo.com^$third-party
-||tiktok.com^$third-party
 
-! Block video ads, pre-rolls, and tracking that affect mobile media playback
-||*.video-ad.*
-||*.preroll.*^
-||youtube.com/get_video_info?adformat^
-||youtube.com/api/stats/ads^
-||vimeo.com/api/v2/video/*/stats^
-||*.ad-video.*
+! Block pop-up ads, banners, and interstitials
+##.popup
+##.modal
+##.cookie-banner
+##.fullscreen-overlay
+##.ad-container
+##[id^="ad"]
+##[class^="ad-"]
 
-! Block forced autoplay of videos and audio on mobile devices
-||*.autoplay.*
-||*.sound.*^
-||*.media-player.*
-||*.video.*$document
+! Block auto-opening tabs and forced redirects
+||*.auto-redirect.*$document
+||*.redirect.*$document
+||*.offer.*$document
+||*.promo.*$document
+||*.ad.*$document
+||*.track.*$document
+||*.landing.*$document
 
-! Block misleading fake download buttons and unwanted elements
-##.fake-download
-##.btn-download
-##.fake-button
-##.download-now
-##.start-download
-
-! Block full-screen overlays and interstitial ads on mobile
-##.ad-popup
-##.ad-banner
-##.page-cover
-##.ad-interstitial
-##.fullscreen-ad
-
-! Block advanced trackers, device fingerprinting, and unwanted web tracking for privacy
-||*.fingerprint.*^
-||*.device.*^
-||*.canvas.*^
-||*.webgl.*^
-||*.storage.*^
-||*.localstorage.*^
-||*.sessionstorage.*^
-||*.websocket.*^
-||*.cache.*^
-||*.cookies.*^
-
-! Block auto-redirects, pop-ups, and malicious links that interfere with mobile navigation
-||*.auto-redirect.*
-||*.redirect.*^$document
-||*.landing.*^$document
-||*.offer.*^$document
-||*.promo.*^$document
-||*.track.*^$document
-
-! Malware, phishing, and suspicious domains
+! Block malware, phishing, and suspicious links
 ||*.malware.*
 ||*.phishing.*
 ||*.virus.*
 ||*.fraud.*
 ||*.scam.*
-||*.trojan.*
 
-! Block unnecessary resources, images, or scripts that don’t affect the layout or interactivity of mobile sites
-||*.js$script
-||*.css$stylesheet
-||*.jpg$image
-||*.jpeg$image
-||*.png$image
-||*.gif$image
-
-! Anti-Adblocker Bypass: Block anti-adblocker scripts but allow core mobile site functionality
-##.adblock-detected
-##.adblock-notice
-##.adblock-message
-##.adblock-popup
-##.adblock-banner
-##.abp-block
-##.anti-adblock
-##.block-ads
-##.no-ads
-##.popup-adblock
-##.block-message
-##.block-ad-warning
-
-! Block auto-tab opening, popups, and unwanted window redirects that affect mobile browsing experience
-||*.autotab.*
-||*.tabopen.*
-||*.opennewtab.*
-||*.newtab.*
-
-! Exceptions for trusted websites to load essential resources (for both mobile and desktop functionality)
+! Exceptions for trusted sites to load essential resources
 @@||trustedwebsite.com^$document
 @@||example.com^$document
-@@||cdnjs.cloudflare.com^$script
-@@||googleapis.com^$script
 @@||fonts.gstatic.com^$font
-@@||github.com^$document
-
-! Ensure no breakage of legitimate mobile websites, including GitHub and essential web tools
-@@||*.css$stylesheet
-@@||*.js$script
-@@||*.png$image
-@@||*.jpg$image
-@@||*.jpeg$image
-@@||github.com^$document
+@@||googleapis.com^$script
+@@||cdnjs.cloudflare.com^$script
 
 ! End of List
