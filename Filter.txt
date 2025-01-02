@@ -1,4 +1,4 @@
-! Enhanced Universal Ad and Annoyance Blocker - Advanced Edition
+! Enhanced Universal Ad and Annoyance Blocker - Anti-Adblocker Bypass Edition
 ! Aggressively blocks ads, pop-ups, auto-opening tabs, and intrusive elements globally
 ! Ensures compatibility by adding safe exceptions for legitimate site functionality
 
@@ -137,12 +137,33 @@
 ||*.png$image
 ||*.gif$image
 
+! Anti-Adblocker Bypass: Block Anti-Adblocker scripts and elements
+##.adblock-detected
+##.adblock-notice
+##.adblock-message
+##.adblock-popup
+##.adblock-banner
+##.abp-block
+##.anti-adblock
+##.block-ads
+##.no-ads
+##.popup-adblock
+##.block-message
+##.block-ad-warning
+
+! Block auto tab opening and window popups
+||*.autotab.*
+||*.tabopen.*
+||*.opennewtab.*
+||*.newtab.*
+
 ! Exceptions for trusted sites (only necessary resources allowed)
 @@||trustedwebsite.com^$document
 @@||example.com^$document
 @@||cdnjs.cloudflare.com^$script
 @@||googleapis.com^$script
 @@||fonts.gstatic.com^$font
+@@||github.com^$document
 
 ! Ensure no breaking of legitimate websites
 @@||*.css$stylesheet
@@ -150,5 +171,6 @@
 @@||*.png$image
 @@||*.jpg$image
 @@||*.jpeg$image
+@@||github.com^$document
 
 ! End of List
