@@ -1,0 +1,13 @@
+! Auto-Opening Tab Blocker - Blocks Auto-Opening Tabs Without Breaking Websites
+! This filter is designed to prevent unwanted popups and redirects, ensuring site functionality.
+
+! Block auto-opening tabs, forced redirects, and unwanted windows (prevents new tab popups)
+||*://*.click.*^$document
+||*://*.offer.*^$document
+||*://*.open.*^$document
+||*://*.newwindow.*^$document
+||*://*.redirect.*^$document
+||*://*.popup.*^$document
+||*://*.auto-redirect.*^$document
+
+! End of List
