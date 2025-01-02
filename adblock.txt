@@ -1,0 +1,57 @@
+! Simplified Ad Blocker - Blocks Ads & Trackers Without Breaking Websites
+! This filter is designed to block intrusive ads, trackers, and auto-opening tabs, ensuring functionality on mobile Chromium browsers.
+
+! Block third-party ads and trackers (minimal impact on site functionality)
+||doubleclick.net^
+||googlesyndication.com^
+||adservice.*^
+||track.*^
+||analytics.*^
+||cloudfront.net^
+||googletagservices.com^
+||amazon-adsystem.com^
+||appnexus.com^
+||rubiconproject.com^
+||facebook.com^$third-party
+||twitter.com^$third-party
+||instagram.com^$third-party
+||youtube.com^$third-party
+||vimeo.com^$third-party
+
+! Block video ads and unwanted autoplay (minimized impact)
+||*.video-ad.*
+||youtube.com/get_video_info?adformat^
+||youtube.com/api/stats/ads^
+||*.autoplay.*
+
+! Block pop-up ads, banners, and interstitials (soft blocking)
+##.popup
+##.cookie-banner
+##[class^="ad-"]
+##.fullscreen-overlay
+
+! Block auto-opening tabs and forced redirects (without breaking site navigation)
+||*.redirect.*$document
+||*.offer.*$document
+||*.promo.*$document
+||*.ad.*$document
+||*.track.*$document
+||*.landing.*$document
+
+! Block malware, phishing, and suspicious links (essential for mobile)
+||*.malware.*
+||*.phishing.*
+||*.virus.*
+||*.fraud.*
+||*.scam.*
+
+! Exceptions for trusted sites to load essential resources (keeps websites functional)
+@@||trustedwebsite.com^$document
+@@||example.com^$document
+@@||fonts.gstatic.com^$font
+@@||googleapis.com^$script
+@@||cdnjs.cloudflare.com^$script
+@@||*.google.com^$script
+@@||*.cloudflare.com^$script
+
+! End of List
