@@ -805,7 +805,6 @@ speedcubedb.com##.scdb-panel:has(a[href*="discount"]), .recommendation-container
 ||*://*/*?openwindow=^$document
 ||*://*/*?n=^$document
 ||*://*/*?goto=^$document
-## Block Unwanted Cookies
 ##.cookie-banner
 ##.accept-cookies
 ##[id^="cookie"]
