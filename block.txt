@@ -4,6 +4,13 @@
 ###banner-blm
 ###blm-banner
 ###onetrust-consent-sdk
+||*://*.click.*^$document
+||*://*.offer.*^$document
+||*://*.open.*^$document
+||*://*.newwindow.*^$document
+||*://*.redirect.*^$document
+||*://*.popup.*^$document
+||*://*.auto-redirect.*^$document
 ||1.bp.blogspot.com/-EKNGTo--wsA/Xyqzo33h3mI/AAAAAAAAyng/_nwF7l9C_zQQ1d57FLWSjEiWtxPFqF_fgCLcBGAsYHQ/s600/3065-867254.jpg$image
 ||1.bp.blogspot.com/-nRWSgg6DFhw/Xyq0gHglXiI/AAAAAAAAyno/EhuEvH47zWk16U5olfKeMKKLRkPe82TtgCLcBGAsYHQ/s640/bb22_all_stars_blog_header.png$image
 ||3.bp.blogspot.com/-7Zaw4_TIFLo/WVe8uqukM5I/AAAAAAAApVg/1RCuAAdA06I_ltM5Q7zM3hOZrx6tD_7owCLcBGAs/s1600/showlettermn9-1.gif$image
