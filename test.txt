@@ -1,7 +1,0 @@
-||*://*.click.*^$document
-||*://*.offer.*^$document
-||*://*.open.*^$document
-||*://*.newwindow.*^$document
-||*://*.redirect.*^$document
-||*://*.popup.*^$document
-||*://*.auto-redirect.*^$document
